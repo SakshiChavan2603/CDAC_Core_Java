@@ -106,6 +106,7 @@ public class Array2DService {
 		}
 	}
 
+	//transpose of matrix
 	public static int[][] transpsoeMatrix(int[][] arr) {
 		if(arr.length == arr[0].length) {
 			int temp[][] = new int[arr.length][arr[0].length];
@@ -120,6 +121,147 @@ public class Array2DService {
 		}
 		
 	}
+	
+	//check matrix is identity or not
+	public static boolean checkIdentityMatrix(int[][] arr) {
+		for(int i=0;i<arr.length;i++) {
+			for(int j=0;j<arr[i].length;j++) {
+				if(i==j && arr[i][j]!=1) {
+					return false;
+				}else if(i!=j && arr[i][j]!=0) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
+	//rotate array row- wise upward
+	public static int[][] rotateByRowwise(int[][] arr, int n) {
+		int temp[][] = new int[arr.length][arr[0].length];
+		
+		//copy arr into temp
+		for(int i=0;i<arr.length;i++) {
+			for(int j=0;j<arr[i].length;j++) {
+				temp[i][j] = arr[i][j];
+			}
+		}
+		//rotate array n times
+		for(int rotate=0;rotate<n;rotate++) {
+			//store last row in 1 array
+			int temp1[] = temp[0];
+		
+			//shift rows
+			for(int i=0;i<temp.length-1;i++) {
+				temp[i]= temp[i+1];
+			}
+			//shift 1st row to last row
+			temp[arr.length-1] = temp1;
+		}
+		return temp;
+	}
+
+	//rotate array column wise
+	public static int[][] rotateByColumnwise(int[][] arr, int n) {
+		int temp[][] = new int[arr.length][arr[0].length];
+		
+		//copy arr into temp
+		for(int i=0; i<arr.length; i++) {
+			for(int j=0;j<arr[i].length;j++) {
+				temp[i][j] = arr[i][j];
+			}
+		}
+		for(int rotate=0;rotate<n;rotate++) {
+			//store last column value in new 1Darray
+			int temp1[] = new int[arr.length];
+			for(int i=0;i<arr.length;i++) {
+				temp1[i] = temp[i][temp.length-1];
+			}
+		
+			//shift all columns towards right by 1 column
+			//storing from 2nd last column
+			for(int i=0; i<temp.length; i++) {
+				for(int j=temp[i].length-2; j>=0 ; j--) {
+					temp[i][j+1] = temp[i][j];
+				}
+			}
+		
+			//copy temp1 to the 0th index
+			for(int i=0; i<temp.length; i++) {
+				temp[i][0] = temp1[i];
+			}
+		}
+		
+		return temp;
+	}
+
+	//convert 2D array to 1D array
+	public static int[] convert2Dto1D(int[][] arr) {
+		int temp[] = new int[arr.length*arr[0].length];
+		int k = 0;
+		for(int i=0;i<arr.length;i++) {
+			for(int j=0;j<arr[0].length;j++) {
+				temp[k] = arr[i][j];
+				k++;
+			}
+		}
+		return temp;
+	}
+
+	//Maximum from the 2D array;
+	public static int maxFrom2DArray(int[][] arr) {
+		int max = arr[0][0];
+		for(int i=0;i<arr.length;i++) {
+			for(int j=0;j<arr[i].length;j++) {
+				if(arr[i][j]>max) {
+					max = arr[i][j];
+				}
+			}
+		}
+		return max;
+	}
+	
+	//Maximum row-wise
+	public static int[] maxRowwise(int[][] arr) {
+		int temp[] = new int[arr.length];
+		int max;
+		int k =0;
+		
+		for(int i=0;i<arr.length;i++) {
+			max = arr[i][0];
+			for(int j=0;j<arr[i].length;j++) {
+				if(arr[i][j]>max) {
+					max = arr[i][j];
+					temp[k] = arr[i][j];
+				}
+			}
+			//temp[k] = max;
+			k++;
+		}
+		return temp;
+	}
+
+	public static int[] maxColumwise(int[][] arr) {
+		int temp[] = new int[arr[0].length];
+		int max;
+		int k=0;
+		
+		for(int i=0;i<arr[0].length;i++) {   //column
+			max = arr[0][i];
+			for(int j=0;j<arr.length;j++) {  //row
+				if(arr[j][i] > max) {
+					//max = arr[j][i];
+					temp[k] = arr[j][i];
+				}
+			}
+			//temp[k] = max;
+			k++;
+		}
+		return temp;
+		
+	}
+	
+	
 
 
 
