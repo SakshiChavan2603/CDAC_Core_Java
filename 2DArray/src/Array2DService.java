@@ -231,7 +231,7 @@ public class Array2DService {
 			max = arr[i][0];
 			for(int j=0;j<arr[i].length;j++) {
 				if(arr[i][j]>max) {
-					max = arr[i][j];
+					//max = arr[i][j];
 					temp[k] = arr[i][j];
 				}
 			}
@@ -241,6 +241,7 @@ public class Array2DService {
 		return temp;
 	}
 
+	//Maximum column-wise
 	public static int[] maxColumwise(int[][] arr) {
 		int temp[] = new int[arr[0].length];
 		int max;
@@ -260,9 +261,4 @@ public class Array2DService {
 		return temp;
 		
 	}
-	
-	
-
-
-
 }
