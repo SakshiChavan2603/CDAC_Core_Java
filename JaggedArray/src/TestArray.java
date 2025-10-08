@@ -47,131 +47,28 @@ public class TestArray {
 					break;
 					
 				case 5:
-					temp = ArrayService.additionColumn();
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					wise(arr);
+					temp = ArrayService.additionColumnwise(arr);
 					for(int i=0;i<temp.length;i++) {
 						System.out.println("Addition of "+ (i+1) + " " + temp[i]);
 					}
 					break;
+				
+				case 6:
+					int sum = ArrayService.additionArray(arr);
+					System.out.println("Addition of Array is "+sum);
+					break;
+				
+				case 7:
+					System.out.println("Thank You!!");
+					System.exit(0);
+				
+				default:
+					System.out.println("Invalid Choice!");
+					break;
 			}
 
 			
-		}while(choice!=6);
+		}while(choice!=7);
 		sc.close();
 	}
 

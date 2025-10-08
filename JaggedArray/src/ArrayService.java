@@ -81,6 +81,7 @@ public class ArrayService {
 		return temp;
 	}
 
+	//addition rowwise
 	public static int[] additionRowwise(int[][] arr) {
 		int temp[] = new int[arr.length];
 		
@@ -93,10 +94,39 @@ public class ArrayService {
 		}
 		return temp;
 	}
-
+	
+	//addition column-wise
 	public static int[] additionColumnwise(int[][] arr) {
-		// TODO Auto-generated method stub
-		return null;
+		int maxlength = arr[0].length;
+		for(int i=0;i<arr.length;i++) {
+			if(maxlength < arr[i].length) {
+				maxlength = arr[i].length;
+			}
+		}
+		
+		int[] temp = new int[maxlength];
+		
+		for(int i=0;i<maxlength;i++) {
+			int sum=0;
+			for(int j=0;j<arr.length;j++) {
+				int[] currentRow = arr[j];
+				if(currentRow!=null && i<currentRow.length) {
+					sum+= currentRow[i];
+				}
+			}
+			temp[i] = sum;
+		}
+		return temp;
+	}
+	
+	public static int additionArray(int[][] arr) {
+		int sum = 0;
+		for(int i=0;i<arr.length;i++) {
+			for(int j=0;j<arr[i].length;j++) {
+				sum= sum + arr[i][j];
+			}
+		}
+		return sum;
 	}
 
 }
