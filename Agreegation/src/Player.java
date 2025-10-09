@@ -1,28 +1,28 @@
 
 public class Player {
 	
-	private int id;
+	private int pid;
 	private String name;
 	private String speciality;
 	
 	public Player() {
-		id = 0;
+		pid = 0;
 		name = null;
 		speciality = null;
 	}
 
 	public Player(int id, String name, String sp) {
-		this.id =id;
+		this.pid =id;
 		this.name = name;
 		speciality = sp;
 	}
 	
-	public int getId() {
-		return id;
+	public int getPId() {
+		return pid;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setPId(int id) {
+		this.pid = id;
 	}
 
 	public String getName() {
@@ -43,7 +43,7 @@ public class Player {
 
 	@Override
 	public String toString() {
-		return "Player [id=" + id + ", name=" + name + ", speciality=" + speciality + "]";
+		return "Player [id=" + pid + ", name=" + name + ", speciality=" + speciality + "]";
 	}
 	
 	

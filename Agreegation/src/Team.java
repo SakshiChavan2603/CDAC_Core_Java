@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 public class Team {
-	private int id ;
+	private int tid ;
 	private String tname;
 	Player captain;
 	Player[] plist;
@@ -11,17 +11,17 @@ public class Team {
 	}
 	public Team(int id, String tname, Player captain, Player[] plist, int size) {
 		super();
-		this.id = id;
+		this.tid = id;
 		this.tname = tname;
 		this.captain = captain;
 		this.plist = plist;
 		this.size = size;
 	}
-	public int getId() {
-		return id;
+	public int getTId() {
+		return tid;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setTId(int id) {
+		this.tid = id;
 	}
 	public String getTname() {
 		return tname;
@@ -49,7 +49,7 @@ public class Team {
 	}
 	@Override
 	public String toString() {
-		return "Team [id=" + id + ", tname=" + tname + ", captain=" + captain + ", plist=" + Arrays.toString(plist)
+		return "Team [id=" + tid + ", tname=" + tname + ", captain=" + captain + ", plist=" + Arrays.toString(plist)
 				+ ", size=" + size + "]";
 	}
 	
