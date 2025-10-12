@@ -142,8 +142,32 @@ public class EmployeeService {
 		}
 		
 	}
-	public static boolean serachByName(String name) {
-		for(Emplyee e)
+	public static Employee[] serachByName(String name) {
+		Employee[] temp = new Employee[count];
+		int i=0;
+		for(Employee e: emparr) {
+			if(e!=null) {
+				if(e.getName().equals(name)) {
+					temp[i] = e;
+					i++;
+				}
+			}else {
+				break;
+			}
+		}
+		return temp;
+	}
+	public static double calculateSalary(String id) {
+		for(Employee e:emparr) {
+			if(e!=null) {
+				if(e.getPid().equals(id)) {
+					return e.calculateSal();
+				}
+			}else {
+				break;
+			}
+		}
+		return 0;
 	}
 	
 	

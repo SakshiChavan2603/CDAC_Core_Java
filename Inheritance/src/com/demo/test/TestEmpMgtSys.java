@@ -69,14 +69,36 @@ public class TestEmpMgtSys {
 				case 7:
 					System.out.println("Enter the name of emp");
 					String name = sc.next();
-					status = EmployeeService.serachByName(name);
-					if(status) {
-						System.out.println("employee find");
-					}else {
-						System.out.println("not found");
+					Employee[] temp = EmployeeService.serachByName(name);
+					for(Employee t: temp) {
+						if(t!=null) {
+							System.out.println(t);
+						}else {
+							System.out.println("not found");
+							break;
+						}
 					}
 					break;
-
+				
+				case 8:
+//					System.out.println("1.Slaried Emp 2.Contract emp 3.Vendor");
+//					ch = sc.nextInt();
+					System.out.println("Enter the id");
+					id = sc.next();
+					salary = EmployeeService.calculateSalary(id);
+					if(salary>0) {
+						System.out.println("Salary of the employee" + id + "is "+ salary);
+					}else {
+						System.out.println("Employee not found");
+					}
+					break;
+				
+				case 9:
+					System.exit(0);
+				
+				default:
+					System.out.println("Invalid choice");
+					break;
 			}
 		}while(choice !=9);
 	}
