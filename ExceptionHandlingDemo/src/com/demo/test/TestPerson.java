@@ -22,6 +22,7 @@ public class TestPerson {
 				System.out.println(e.getMessage());
 			}
 		}
+		sc.close();
 	}
 
 }
